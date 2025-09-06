@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/x-icon">
+
+    <title>CouponHub - Best Deals & Discounts</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>CouponHub</h1>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#electronics">Electronics</a></li>
+                        <li><a href="#fashion">Fashion</a></li>
+                        <li><a href="#food">Food & Dining</a></li>
+                        <li><a href="#travel">Travel</a></li>
+                        <li><a href="#home-garden">Home & Garden</a></li>
+                    </ul>
+                </li>
+                <li><a href="#stores" class="nav-link">All Stores</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            <!-- Mobile Controls Section (Hamburger + Cart) -->
+            <div class="nav-mobile-section">
+                <!-- Hamburger Menu (Three Lines) -->
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            <div class="nav-cart">
+                <button class="cart-button" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Save Money on Every Purchase</h2>
+            <p>Find the best coupons and deals from 100+ top stores</p>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for stores or coupons...">
+                <button onclick="searchCoupons()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+
+    <!-- Filter Bar -->
+    <section class="filter-bar">
+        <div class="container">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Coupons</button>
+                <button class="filter-btn" data-filter="electronics">Electronics</button>
+                <button class="filter-btn" data-filter="fashion">Fashion</button>
+                <button class="filter-btn" data-filter="food">Food</button>
+                <button class="filter-btn" data-filter="expiring">Expiring Soon</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coupons Grid -->
+    <section class="coupons-section">
+        <div class="container">
+            <div class="coupons-grid" id="couponsGrid">
+                <!-- Coupons will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <button class="clear-cart" onclick="clearCart()">Clear Cart</button>
+            <button class="checkout-btn" onclick="printCoupons()">Print Coupons</button>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/tracking.js"></script>
+</body>
+</html>

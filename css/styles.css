@@ -1,0 +1,851 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #FF6B6B;
+    --secondary-color: #4ECDC4;
+    --dark-color: #2C3E50;
+    --light-color: #F8F9FA;
+    --success-color: #51CF66;
+    --warning-color: #FFD93D;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.nav-brand h1 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 180px;
+    list-style: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu a {
+    color: var(--dark-color);
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    color: var(--primary-color);
+    background: var(--light-color);
+}
+
+/* Cart Button */
+.cart-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    position: relative;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.cart-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255,107,107,0.3);
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--warning-color);
+    color: var(--dark-color);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.search-bar {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+}
+
+.search-bar button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-bar button:hover {
+    background: #ff5252;
+}
+
+/* Filter Bar */
+.filter-bar {
+    background: white;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 70px;
+    z-index: 999;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.filter-btn {
+    background: white;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Coupon Grid */
+.coupons-section {
+    padding: 3rem 0;
+}
+
+.coupons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Coupon Card */
+.coupon-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.coupon-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.coupon-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.store-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.coupon-body {
+    padding: 1.5rem;
+}
+
+.discount-amount {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.coupon-description {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.coupon-code {
+    background: var(--light-color);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    border: 2px dashed var(--primary-color);
+}
+
+.coupon-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.expiry-date {
+    color: var(--warning-color);
+    font-size: 0.9rem;
+}
+
+.category-tag {
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.coupon-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #ff5252;
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+    transition: right 0.3s;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.active {
+    right: 0;
+}
+
+.cart-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.cart-item {
+    background: var(--light-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item-info h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.cart-item-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.remove-item {
+    background: #ff5252;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-footer {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 1rem;
+}
+
+.cart-footer button {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.clear-cart {
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.checkout-btn {
+    background: var(--success-color);
+    color: white;
+}
+
+/* Empty Cart State */
+.empty-cart {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #999;
+}
+
+/* Mobile Controls Container */
+.nav-mobile-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Empty Cart State continued */
+.empty-cart i {
+    font-size: 4rem;
+    color: #ddd;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.empty-cart h3 {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.empty-cart p {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Loading Spinner */
+.loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader.active {
+    display: flex;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--light-color);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Mobile Controls Container */
+.nav-mobile-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Hamburger Menu Styling */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    width: 44px;
+    height: 44px;
+    position: relative;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--dark-color);
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Animated Hamburger */
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* Badge Styles */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-new {
+    background: var(--success-color);
+    color: white;
+}
+
+.badge-hot {
+    background: var(--primary-color);
+    color: white;
+}
+
+.badge-verified {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Copy Code Animation */
+.copy-feedback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--success-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.copy-feedback.show {
+    opacity: 1;
+}
+
+/* No Results State */
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+}
+
+.no-results i {
+    font-size: 5rem;
+    color: #ddd;
+    margin-bottom: 1rem;
+}
+
+.no-results h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+.no-results p {
+    font-size: 1rem;
+    color: #999;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 900;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    background: #ff5252;
+    transform: translateY(-3px);
+}
+
+/* Skeleton Loading */
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+    width: 100%;
+    height: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.skeleton-text:last-child {
+    width: 80%;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 80%);
+    }
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .filter-bar,
+    .cart-sidebar,
+    .scroll-to-top,
+    .nav-toggle,
+    .cart-button {
+        display: none !important;
+    }
+    
+    .coupon-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .hero {
+        background: none;
+        color: var(--dark-color);
+        padding: 1rem 0;
+    }
+}
+
+/* Hide hamburger on desktop, show cart */
+@media (min-width: 769px) {
+    .nav-toggle {
+        display: none !important;
+    }
+}
+
+/* Hamburger Menu Styling (using your .nav-toggle class) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    width: 44px;
+    height: 44px;
+    position: relative;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--dark-color);
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Animated Hamburger */
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Show hamburger on mobile */
+    .nav-toggle {
+        display: block !important;
+    }
+    
+    /* Hide desktop menu by default */
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 100%;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        padding: 0;
+        margin: 0;
+    }
+    
+    /* Show menu when active */
+    .nav-menu.active {
+        display: flex !important;
+    }
+    
+    /* Rest of the mobile styles remain the same... */
+}
